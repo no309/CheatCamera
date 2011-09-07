@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_sound">
+	    <item>カシャ</item>
+	    <item>ボンッ</item>
+	    <item>ニャー</item>
+    </string-array>
+    <string-array name="list_soundvalues">
+ 	    <item>カシャ</item>
+	    <item>ボンッ</item>
+	    <item>ニャー</item>
+    </string-array>    
+    <string-array name="list_time">
+	    <item>０秒後</item>
+	    <item>５秒後</item>
+	    <item>１０秒後</item>
+    </string-array>
+    <string-array name="list_timevalues">
+	    <item>0</item>
+	    <item>5</item>
+	    <item>10</item>
+    </string-array>
+</resources>

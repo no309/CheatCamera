@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, CheatCameraActivity!</string>
+    <string name="person_name">人名を入力してください</string>
+    <string name="shutter_sound">シャッター音を設定してください</string>
+    <string name="time_name">時間を設定してください</string>
     <string name="app_name">CheatCamera</string>
 </resources>
