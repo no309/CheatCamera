@@ -14,10 +14,14 @@
 	    <item>０秒後</item>
 	    <item>５秒後</item>
 	    <item>１０秒後</item>
+	    <item>３０秒後</item>
+	    <item>１分後</item>
     </string-array>
     <string-array name="list_timevalues">
 	    <item>0</item>
 	    <item>5</item>
 	    <item>10</item>
+	    <item>30</item>
+	    <item>60</item>
     </string-array>
 </resources>

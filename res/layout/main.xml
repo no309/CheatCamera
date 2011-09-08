@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <Button android:text="Button" android:id="@+id/button1" android:onClick="onClickCheat" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-    <Button android:text="Button" android:id="@+id/button2" android:onClick="onClickSetting" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-    <Button android:text="Button" android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    <Button android:text="@string/start_name" android:id="@+id/button1" android:onClick="onClickCheat" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    <Button android:text="@string/setting_name" android:id="@+id/button2" android:onClick="onClickSetting" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    <Button android:text="@string/play_name" android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 </LinearLayout>
