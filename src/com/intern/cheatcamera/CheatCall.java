@@ -52,6 +52,8 @@ public class CheatCall extends Activity implements
 	
 	private MediaPlayer mp;
 	
+	String file;
+	
 	private final static String SAVE_FOLDER_NAME = "/ct_camera/";
 
 	@Override
@@ -89,10 +91,40 @@ public class CheatCall extends Activity implements
 		mp.start();
 		Log.d("onStart","mp.start");
 	}
+	
 	@Override
-	public void onPause() {
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		Log.d("onStart","");
+	}
+	
+	@Override
+	public void onPause(){
 		//closeCamera();
 		super.onPause();
+		Log.d("onPause","");
+	}
+	
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		mp.stop();
+		if(camera != null){
+		camera.stopPreview();
+		camera.release();
+		camera = null;
+		}
+		Log.d("onStop","");
+	}
+	
+	@Override
+	protected void onRestart() {
+		// TODO Auto-generated method stub
+		super.onRestart();
+		//camera.startPreview();
+		//camera = Camera.open(1);
 	}
 
 	@Override
@@ -100,6 +132,11 @@ public class CheatCall extends Activity implements
 		// TODO Auto-generated method stub
 		super.onDestroy();
 		mp.stop();
+		if(camera != null){
+		//camera.stopPreview();
+		camera.release();
+		}
+		Log.d("onDestroy","");
 	}
 	
 	public void surfaceCreated(SurfaceHolder holder) {
@@ -253,7 +290,7 @@ public class CheatCall extends Activity implements
 			          long date = System.currentTimeMillis ();
 
 			          // 他のとかぶらない名前の設定
-			          String file = path + SAVE_FOLDER_NAME + date +".jpg";
+			          file = path + SAVE_FOLDER_NAME + date +".jpg";
 			          Log.d ("TAG", file);
 
 			          // 普通に保存すると、previewだと縦なのに横向きで保存されてしまうので、向きを変えて保存する
@@ -305,14 +342,15 @@ public class CheatCall extends Activity implements
 			        camera.setDisplayOrientation (90);
 			        camera.startPreview ();
 			       // camera.release(); //これがあると、強制終了される
-			        
+
 			        
 			     // 戻る画面へ
 			        	 //次の画面に遷移させる
-			        Intent intent = new Intent();
+			        Intent intent = new Intent(CheatCall.this, Return.class);
 			        intent.setClassName(
 			                 "com.intern.cheatcamera",
 			                 	"com.intern.cheatcamera.Return");
+			        intent.putExtra("path", file);
 			        startActivity(intent);
 				}
 			});
