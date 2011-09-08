@@ -35,5 +35,14 @@ public class CheatCameraActivity extends Activity {
                 "com.intern.cheatcamera.MenuList");
         startActivity(intent);
     }
+    // ‹U‰æ–Ê‚Ö
+    public void onClickCheat(View v){
+    	 //ŽŸ‚Ì‰æ–Ê‚É‘JˆÚ‚³‚¹‚é
+        Intent intent = new Intent();
+        intent.setClassName(
+                "com.intern.cheatcamera",
+                "com.intern.cheatcamera.CheatCall");
+        startActivity(intent);
+    }
     
 }

@@ -14,5 +14,6 @@
             </intent-filter>
         </activity>
         <activity android:name="MenuList"></activity>
+        <activity android:name="CheatCall"></activity>
     </application>
 </manifest>
