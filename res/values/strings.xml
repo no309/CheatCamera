@@ -4,4 +4,5 @@
     <string name="shutter_sound">シャッター音を設定してください</string>
     <string name="time_name">時間を設定してください</string>
     <string name="app_name">CheatCamera</string>
+    <color name="bluck">#000000 </color>
 </resources>
