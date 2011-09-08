@@ -10,13 +10,14 @@ public class CheatCall extends Activity {
 	private MediaPlayer mp;
 	
 	@Override
-    public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cheatcall);
         Log.d("onCreate","onCreate");
         mp = MediaPlayer.create(this,R.raw.call);
 //        mp.setLooping(true);
         mp.start();
+        
     }
 
 }
