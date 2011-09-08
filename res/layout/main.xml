@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:keepScreenOn="true"
-    android:layout_height="fill_parent">
-    <Button android:text="@string/start_name" android:id="@+id/button1" android:onClick="onClickCheat" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-    <Button android:text="@string/setting_name" android:id="@+id/button2" android:onClick="onClickSetting" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-    <Button android:text="@string/play_name" android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-</LinearLayout>
+    android:layout_height="fill_parent" android:orientation="vertical" android:weightSum="1">
+    <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onClickCheat" android:src="@drawable/start" android:id="@+id/start_button" android:background="@null" android:layout_above="@+id/play_button" android:layout_centerHorizontal="true" android:layout_marginBottom="92dp"></ImageButton>
+    <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/playing" android:id="@+id/play_button" android:background="@null" android:layout_alignTop="@+id/setting_button" android:layout_alignParentRight="true" android:layout_marginRight="17dp"></ImageButton>
+    <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onClickSetting" android:src="@drawable/setting" android:id="@+id/setting_button" android:background="@null" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_marginLeft="21dp" android:layout_marginBottom="49dp"></ImageButton>
+</RelativeLayout>

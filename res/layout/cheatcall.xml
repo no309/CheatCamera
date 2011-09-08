@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent">
-    <TextView android:text="gamenn idou" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-    
-</LinearLayout>
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  
+    <SurfaceView android:id="@+id/surface"
+		android:layout_height="145dp" android:layout_width="145dp" android:layout_gravity="center">
+	</SurfaceView>
+	<ImageView android:id="@+id/imageView1" android:src="@drawable/background1" android:layout_width="330dp" android:layout_height="600dp" android:layout_gravity="center"></ImageView>
+<TableLayout android:id="@+id/tableLayout1" android:layout_gravity="bottom" android:layout_width="match_parent" android:layout_height="88dp">
+<TableRow android:id="@+id/tableRow1"  android:layout_width="wrap_content" android:layout_height="wrap_content">
+<ImageButton android:src="@drawable/catch1" android:layout_width="170dp" android:layout_height="62dp" android:id="@+id/imageButton1" android:layout_gravity="bottom"></ImageButton>
+<ImageButton android:src="@drawable/notcatch1" android:layout_width="170dp" android:layout_height="62dp" android:id="@+id/imageButton2"></ImageButton>
+	</TableRow>
+</TableLayout>
+</FrameLayout>

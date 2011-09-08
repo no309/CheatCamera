@@ -12,7 +12,9 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 /**
@@ -23,9 +25,9 @@ public class CheatCameraActivity extends Activity {
     /** Called when the activity is first created. */
 	// commit test by ¼’J@Nq
 	// commit test by mtbr
-	private Button startBtn;// ‹U’…M‰æ–Ê‚Ö
-	private Button settingBtn;// İ’è‰æ–Ê‚Ö
-	private Button playBtn;// —V‚Ñ•û‰æ–Ê‚Ö
+	private ImageButton startBtn;// ‹U’…M‰æ–Ê‚Ö
+	private ImageButton settingBtn;// İ’è‰æ–Ê‚Ö
+	private ImageButton playBtn;// —V‚Ñ•û‰æ–Ê‚Ö
 	
 	float    mLaptime = 0.0f;
 	Timer   mTimer   = null;
@@ -33,10 +35,11 @@ public class CheatCameraActivity extends Activity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
-        startBtn = (Button)findViewById(R.id.button1);
-        settingBtn = (Button)findViewById(R.id.button2);
-        playBtn = (Button)findViewById(R.id.button3);
+        startBtn = (ImageButton)findViewById(R.id.start_button);
+        settingBtn = (ImageButton)findViewById(R.id.setting_button);
+        playBtn = (ImageButton)findViewById(R.id.play_button);
 
         
     }
