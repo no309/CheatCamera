@@ -53,6 +53,9 @@ public class CheatCall extends Activity implements
 	/** カメラの表示領域ホルダ */
 	SurfaceHolder surfaceHolder;
 	
+	/**
+	 * メディアプレーヤー
+	 */
 	private MediaPlayer mp;
 	
 	String file;
