@@ -16,6 +16,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * @author furyu
@@ -76,6 +77,9 @@ public class CheatCameraActivity extends Activity {
       SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
       // key="time" ‰Šú’l@0
       String timeStr = sharedPreferences.getString("time", "0");
+      
+      TextView tv = new TextView(this);
+      tv.setText("person");
       
       // String¨int
       int time = Integer.parseInt(timeStr);

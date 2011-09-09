@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,6 +22,7 @@ import android.hardware.Camera.CameraInfo;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images;
 import android.util.Log;
@@ -32,6 +34,7 @@ import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 /**
  * カメラの情報取得テストアクティビティ
@@ -55,6 +58,8 @@ public class CheatCall extends Activity implements
 	String file;
 	
 	private final static String SAVE_FOLDER_NAME = "/ct_camera/";
+	
+	private TextView textView;
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -68,8 +73,16 @@ public class CheatCall extends Activity implements
 		surfaceHolder.addCallback(this);
 		surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 		
+		textView = (TextView)findViewById(R.id.person_text);
+		
 		Log.d("onCreate","onCreate");
         
+//      // データの呼び出し
+		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+	      // key="person" 初期値　ななしのごんべい
+	    String personStr = sharedPreferences.getString("person", "ななしのごんべい");
+	      
+	    textView.setText(personStr);
 		
 		//Button button = (Button) findViewById(R.id.button);
 		//Button button1 = (Button) findViewById(R.id.button1);
@@ -247,6 +260,9 @@ public class CheatCall extends Activity implements
 				public void onPictureTaken(byte[] data, Camera camera){
 					
 					mp.stop();
+					
+					
+					
 		
 				/*	//SDカードへの保存処理呼び出し
 					try{
