@@ -6,13 +6,13 @@
             android:defaultValue="ななしのごんべい"
             android:summary="test">  
         </EditTextPreference>  
-        <ListPreference android:title="@string/shutter_sound"  
+        <!--<ListPreference android:title="@string/shutter_sound"  
             android:key="sound"
             android:defaultValue="カシャ"
             android:entries="@array/list_sound"
             android:entryValues="@array/list_soundvalues"
             android:summary="test">  
-        </ListPreference>
+        </ListPreference>  -->
         <ListPreference android:title="@string/time_name"  
             android:key="time"
             android:defaultValue="0"

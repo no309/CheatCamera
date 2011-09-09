@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="list_sound">
+   <!--<string-array name="list_sound">
 	    <item>シャッター音</item>
 	    <item>爆発音</item>
 	    <item>猫の鳴き声</item>
@@ -13,7 +13,7 @@
 	    <item>cat</item>
 	    <item>man</item>
 	   　　<item>girl</item>
-    </string-array>    
+    </string-array> >     --> 
     <string-array name="list_time">
 	    <item>０秒後</item>
 	    <item>５秒後</item>

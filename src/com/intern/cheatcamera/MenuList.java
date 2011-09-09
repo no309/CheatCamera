@@ -21,8 +21,8 @@ public class MenuList extends PreferenceActivity implements OnSharedPreferenceCh
 		EditTextPreference edittext_preference = (EditTextPreference)getPreferenceScreen().findPreference("person");
 		edittext_preference.setSummary(edittext_preference.getText());
 		// シャッター音のサマリー表示
-		ListPreference list_sound_preference = (ListPreference)getPreferenceScreen().findPreference("sound");
-		list_sound_preference.setSummary(list_sound_preference.getEntry());
+		//ListPreference list_sound_preference = (ListPreference)getPreferenceScreen().findPreference("sound");
+		//list_sound_preference.setSummary(list_sound_preference.getEntry());
 		// 時間のサマリー表示
 		ListPreference list_time_preference = (ListPreference)getPreferenceScreen().findPreference("time");
 		list_time_preference.setSummary(list_time_preference.getEntry());
@@ -44,8 +44,8 @@ public class MenuList extends PreferenceActivity implements OnSharedPreferenceCh
 		EditTextPreference edittext_preference = (EditTextPreference)getPreferenceScreen().findPreference("person");
 		edittext_preference.setSummary(edittext_preference.getText());
 		// シャッター音のサマリー表示
-		ListPreference list_sound_preference = (ListPreference)getPreferenceScreen().findPreference("sound");
-		list_sound_preference.setSummary(list_sound_preference.getEntry());
+		//ListPreference list_sound_preference = (ListPreference)getPreferenceScreen().findPreference("sound");
+		//list_sound_preference.setSummary(list_sound_preference.getEntry());
 		// 時間のサマリー表示
 		ListPreference list_time_preference = (ListPreference)getPreferenceScreen().findPreference("time");
 		list_time_preference.setSummary(list_time_preference.getEntry());

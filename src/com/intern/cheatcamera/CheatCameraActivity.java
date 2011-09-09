@@ -49,7 +49,7 @@ public class CheatCameraActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		// layotをmainに変更する
+		// layoutをmainに変更する
 		super.setContentView(R.layout.main);
 	}
 
@@ -63,6 +63,14 @@ public class CheatCameraActivity extends Activity {
                 "com.intern.cheatcamera.MenuList");
         startActivity(intent);
     }
+    public void onClickHowTo(View v){
+   	 //次の画面に遷移させる
+       Intent intent = new Intent();
+       intent.setClassName(
+               "com.intern.cheatcamera",
+               "com.intern.cheatcamera.HowTo");
+       startActivity(intent);
+   }
     // 偽画面へ
     public void onClickCheat(View v){        
         //タイマーの初期化処理

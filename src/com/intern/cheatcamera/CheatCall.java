@@ -19,7 +19,9 @@ import android.graphics.PixelFormat;
 import android.graphics.Bitmap.CompressFormat;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Vibrator;
@@ -58,7 +60,9 @@ public class CheatCall extends Activity implements
 	 * メディアプレーヤー
 	 */
 	private MediaPlayer mp;
-	private MediaPlayer sp, sp1;
+	
+	//private SoundPool soundpool;
+	//int[] sounds = new int[5];
 
 	
 	String file;
@@ -66,9 +70,6 @@ public class CheatCall extends Activity implements
 	private final static String SAVE_FOLDER_NAME = "/ct_camera/";
 	
 	private TextView textView;
-	private String soundStr;
-	
-	private int shutP = 0;
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -109,33 +110,13 @@ public class CheatCall extends Activity implements
 		// key="person" 初期値　ななしのごんべい
 		String personStr = sharedPreferences.getString("person", "ななしのごんべい");
 		
-		soundStr = sharedPreferences.getString("sound", "shutter");
-		
-		
-		
 		textView.setText(personStr);
-		
-		if(soundStr.equalsIgnoreCase("shutter")){
-			sp = MediaPlayer.create(this, R.raw.shutter);
-	        sp.setLooping(false);
-	        shutP = 0;
-		}else if(soundStr.equalsIgnoreCase("cat")){
-			sp1 = MediaPlayer.create(this, R.raw.cat);
-	        sp1.setLooping(false);
-	        shutP = 1;
-		}else if(soundStr.equalsIgnoreCase("man")){
-			sp = MediaPlayer.create(this, R.raw.man);
-	        sp.setLooping(true);
-	        shutP = 2;
-		}else if(soundStr.equalsIgnoreCase("girl")){
-			sp = MediaPlayer.create(this, R.raw.girl);
-	        sp.setLooping(true);
-	        shutP = 3;
-		}
   
 	    mp = MediaPlayer.create(this, R.raw.call);
         mp.setLooping(true);
 		mp.start();
+		
+		
 		Log.d("onStart","mp.start");
 	}
 	
@@ -143,6 +124,8 @@ public class CheatCall extends Activity implements
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
+		//soundpool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
+		//sounds[0] = soundpool.load(this, R.raw.cat, 1);
 		Log.d("onStart","");
 	}
 	
@@ -150,6 +133,7 @@ public class CheatCall extends Activity implements
 	public void onPause(){
 		//closeCamera();
 		super.onPause();
+		//soundpool.release();
 		Log.d("onPause","");
 	}
 	
@@ -289,6 +273,7 @@ public class CheatCall extends Activity implements
 	
 	private OnClickListener shutterButtonListener = new OnClickListener(){
 		public void onClick(View v){
+			//soundpool.play(sounds[0], 1.0f, 1.0f, 0, 0, 1.0f);
 			//写真の撮影
 			camera.takePicture(null, null, new Camera.PictureCallback(){
 				public void onPictureTaken(byte[] data, Camera camera){
@@ -300,12 +285,7 @@ public class CheatCall extends Activity implements
 		            } catch (IOException e) {
 		                e.printStackTrace();
 		            }
-					
-					/*if(shutP == 0){
-						sp.start();
-					}else if (shutP == 1){
-						sp1.start();
-					}*/
+		            
 				/*	//SDカードへの保存処理呼び出し
 					try{
 						saveSD(data);

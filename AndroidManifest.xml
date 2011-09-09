@@ -33,6 +33,7 @@
 			</intent-filter> -->
 		</activity>
         <activity android:name="Return"></activity>
+        <activity android:name="HowTo"></activity>
         
     </application>
 </manifest>
