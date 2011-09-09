@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="person_name">人名を入力してください</string>
-    <string name="shutter_sound">シャッター音を設定してください</string>
-    <string name="start_name">スタート</string><string name="time_name">時間を設定してください</string>
-    <string name="app_name">CheatCamera</string>
+    <string name="person_name">着信相手の名前の入力</string>
+    <string name="shutter_sound">シャッター音の設定</string>
+    <string name="start_name">スタート</string><string name="time_name">着信が鳴るまでの時間の設定</string>
+    <string name="app_name">だまショット</string>
     <string name="setting_name">設定</string><string name="play_name">遊び方</string><color name="bluck">#000000 </color>
     
     

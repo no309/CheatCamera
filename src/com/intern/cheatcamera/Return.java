@@ -16,7 +16,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -25,7 +25,7 @@ public class Return extends Activity {
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 		setContentView(R.layout.res);
-		Button returnbutton = (Button)findViewById(R.id.returnbutton);
+		ImageButton returnbutton = (ImageButton)findViewById(R.id.returnbutton);
 
 		Intent intent = getIntent();
         String data = intent.getStringExtra("path");

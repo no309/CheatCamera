@@ -22,6 +22,7 @@ import android.hardware.Camera.CameraInfo;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images;
@@ -57,12 +58,17 @@ public class CheatCall extends Activity implements
 	 * メディアプレーヤー
 	 */
 	private MediaPlayer mp;
+	private MediaPlayer sp, sp1;
+
 	
 	String file;
 	
 	private final static String SAVE_FOLDER_NAME = "/ct_camera/";
 	
 	private TextView textView;
+	private String soundStr;
+	
+	private int shutP = 0;
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -76,16 +82,11 @@ public class CheatCall extends Activity implements
 		surfaceHolder.addCallback(this);
 		surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 		
+		
 		textView = (TextView)findViewById(R.id.person_text);
 		
 		Log.d("onCreate","onCreate");
         
-//      // データの呼び出し
-		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-	      // key="person" 初期値　ななしのごんべい
-	    String personStr = sharedPreferences.getString("person", "ななしのごんべい");
-	      
-	    textView.setText(personStr);
 		
 		//Button button = (Button) findViewById(R.id.button);
 		//Button button1 = (Button) findViewById(R.id.button1);
@@ -102,7 +103,37 @@ public class CheatCall extends Activity implements
 	@Override
 	public void onStart(){
 		super.onStart();
-        mp = MediaPlayer.create(this,R.raw.call);
+		
+		// データの呼び出し
+		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+		// key="person" 初期値　ななしのごんべい
+		String personStr = sharedPreferences.getString("person", "ななしのごんべい");
+		
+		soundStr = sharedPreferences.getString("sound", "shutter");
+		
+		
+		
+		textView.setText(personStr);
+		
+		if(soundStr.equalsIgnoreCase("shutter")){
+			sp = MediaPlayer.create(this, R.raw.shutter);
+	        sp.setLooping(false);
+	        shutP = 0;
+		}else if(soundStr.equalsIgnoreCase("cat")){
+			sp1 = MediaPlayer.create(this, R.raw.cat);
+	        sp1.setLooping(false);
+	        shutP = 1;
+		}else if(soundStr.equalsIgnoreCase("man")){
+			sp = MediaPlayer.create(this, R.raw.man);
+	        sp.setLooping(true);
+	        shutP = 2;
+		}else if(soundStr.equalsIgnoreCase("girl")){
+			sp = MediaPlayer.create(this, R.raw.girl);
+	        sp.setLooping(true);
+	        shutP = 3;
+		}
+  
+	    mp = MediaPlayer.create(this, R.raw.call);
         mp.setLooping(true);
 		mp.start();
 		Log.d("onStart","mp.start");
@@ -261,12 +292,20 @@ public class CheatCall extends Activity implements
 			//写真の撮影
 			camera.takePicture(null, null, new Camera.PictureCallback(){
 				public void onPictureTaken(byte[] data, Camera camera){
-					
 					mp.stop();
+					try{
+						mp.prepare();
+					}catch (IllegalStateException e) {
+		                e.printStackTrace();
+		            } catch (IOException e) {
+		                e.printStackTrace();
+		            }
 					
-					
-					
-		
+					/*if(shutP == 0){
+						sp.start();
+					}else if (shutP == 1){
+						sp1.start();
+					}*/
 				/*	//SDカードへの保存処理呼び出し
 					try{
 						saveSD(data);
@@ -278,6 +317,7 @@ public class CheatCall extends Activity implements
 					}*/
 
 			        camera.stopPreview ();
+			        
 
 			        if (data == null)
 			        {

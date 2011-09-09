@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="list_sound">
-	    <item>カシャ</item>
-	    <item>ボンッ</item>
-	    <item>ニャー</item>
+	    <item>シャッター音</item>
+	    <item>爆発音</item>
+	    <item>猫の鳴き声</item>
+	    <item>男性の声</item>
+	   　　<item>女性の声</item>
     </string-array>
     <string-array name="list_soundvalues">
- 	    <item>カシャ</item>
-	    <item>ボンッ</item>
-	    <item>ニャー</item>
+ 	    <item>shutter</item>
+	    <item>cat</item>
+	    <item>cat</item>
+	    <item>man</item>
+	   　　<item>girl</item>
     </string-array>    
     <string-array name="list_time">
 	    <item>０秒後</item>
